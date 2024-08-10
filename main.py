@@ -65,6 +65,12 @@ def main() -> None:
     )
   ) * header['Vertical Scale']
 
+  values_fft = np.fft.fft(values)
+  freqs = np.fft.fftfreq(values_fft.size)
+  plt.subplot(121)
+  plt.stem(freqs, np.abs(values_fft))
+
+  plt.subplot(122)
   plt.plot(times, values)
   plt.grid()
   plt.show()
