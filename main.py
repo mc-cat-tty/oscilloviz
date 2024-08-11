@@ -6,7 +6,7 @@ from functools import partial
 from dataclasses import dataclass
 import csv
 
-FILENAME: str = "data/DS0000.CSV"
+FILENAME: str = "data/DS0009.CSV"
 
 def load_csv(filename: str) -> list[str]:
   with open(filename) as samples:
@@ -68,11 +68,14 @@ def main() -> None:
   values_fft = np.fft.fft(values)
   freqs = np.fft.fftfreq(values_fft.size, d=header['Sampling Period'])
   plt.subplot(121)
-  plt.stem(freqs/header['Sampling Period'], np.abs(values_fft))
+  plt.stem(freqs, np.abs(values_fft))
+  plt.xlabel("f [Hz]")
 
   plt.subplot(122)
   plt.plot(times, values)
   plt.grid()
+  plt.xlabel("f [s]")
+
   plt.show()
 
 if __name__ == "__main__":
