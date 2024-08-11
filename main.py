@@ -74,7 +74,7 @@ def main() -> None:
   plt.subplot(122)
   plt.plot(times, values)
   plt.grid()
-  plt.xlabel("f [s]")
+  plt.xlabel("t [s]")
 
   plt.show()
 
