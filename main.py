@@ -7,7 +7,6 @@ from dataclasses import dataclass
 import csv
 
 FILENAME: str = "data/DS0000.CSV"
-CONST_VAL: float = 0.0498
 
 def load_csv(filename: str) -> list[str]:
   with open(filename) as samples:
@@ -65,8 +64,6 @@ def main() -> None:
       map(attrgetter('value'), samples)
     )
   ) * header['Vertical Scale']
-
-  constant = np.full(values.size, CONST_VAL)
 
   values_fft = np.fft.fft(values)
   freqs = np.fft.fftfreq(values_fft.size, d=header['Sampling Period'])
