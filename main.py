@@ -71,7 +71,7 @@ def main() -> None:
   plt.stem(freqs/header['Sampling Period'], np.abs(values_fft))
 
   plt.subplot(122)
-  plt.plot(times, values-constant)
+  plt.plot(times, values)
   plt.grid()
   plt.show()
 
